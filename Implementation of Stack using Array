@@ -1,0 +1,56 @@
+class Stack{
+   
+    int n=3;
+    int[] arr=new int[n];
+    int top=-1;
+    String push(int a){
+        
+        if(isOverFlow()) return "OverFlow";
+        else{
+            arr[++top]=a;
+            return "Value entered successfully";
+        }
+    }
+    int pop(){
+        int res;
+        if(isUnderFlow()){
+            res=-1;
+        }
+        else{
+            res=arr[top--];
+        }
+        return res;
+    }
+    int peek(){
+        int res=arr[top];
+        return res;
+    }
+    int size(){
+        return top;
+    }
+    boolean isOverFlow(){
+        if(top==n-1) return true;
+        else return false;
+    }
+    boolean isUnderFlow(){
+        if(top==-1) return true;
+        else return false;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		Stack st=new Stack();
+		System.out.println(st.pop());
+		st.push(10);
+		st.push(20);
+		st.push(30);
+		st.push(40);
+		System.out.println(st.size());
+		System.out.println(st.pop());
+		System.out.println(st.peek());
+		System.out.println(st.size());
+		
+	}
+}
